@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Check, Star, Loader2, Sparkles } from 'lucide-react';
+import { Check, Star, Loader2 } from 'lucide-react';
 import api from '@/lib/api';
 import type { MembershipPlan } from '@/types';
 

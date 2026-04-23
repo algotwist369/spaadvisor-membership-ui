@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Sparkles, Phone, User, Key, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Phone, User, Key, ArrowLeft } from 'lucide-react';
 import { useAuthStore } from '@/store/useAuthStore';
 
 export default function Register() {

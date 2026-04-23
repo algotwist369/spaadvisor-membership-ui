@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/Card';
-import { Wallet, Trophy, Calendar, ArrowUpRight, ArrowDownLeft, Sparkles } from 'lucide-react';
+import { Wallet, Calendar, ArrowUpRight, ArrowDownLeft, Sparkles } from 'lucide-react';
 
 import { useWalletStore } from '@/store/useWalletStore';
 import { useAuthStore } from '@/store/useAuthStore';
@@ -120,9 +120,9 @@ const Dashboard: React.FC = () => {
           <div className="space-y-6">
             <div className="p-4 rounded-2xl bg-primary/5 border border-primary/10">
               <div className="flex items-center gap-3 mb-3">
-                <img 
-                  src="https://res.cloudinary.com/dxpxcptn4/image/upload/v1771596901/lead_funnel/Logo/ueieevrqtlohixofo1fe.png" 
-                  alt="SpaAdvisor Logo" 
+                <img
+                  src="https://res.cloudinary.com/dxpxcptn4/image/upload/v1771596901/lead_funnel/Logo/ueieevrqtlohixofo1fe.png"
+                  alt="SpaAdvisor Logo"
                   className="h-5 w-auto"
                 />
                 <span className="font-bold uppercase tracking-wider text-xs text-primary">Current Plan</span>
@@ -130,7 +130,7 @@ const Dashboard: React.FC = () => {
               <p className="text-2xl font-bold text-secondary-900">{activePlanName}</p>
               <p className="text-secondary-500 text-sm mt-1">Exclusive benefits active</p>
             </div>
-            
+
             <div className="space-y-3">
               <p className="text-sm font-medium text-secondary-700">Account Summary</p>
               <div className="flex justify-between text-sm">
