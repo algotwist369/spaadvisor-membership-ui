@@ -69,7 +69,7 @@ const Plans: React.FC = () => {
               planId: plan._id,
               clientId: user._id
             });
-            
+
             alert('Membership assigned successfully!');
             await fetchWallet();
             router.push('/dashboard');
@@ -121,8 +121,8 @@ const Plans: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {plans.map((plan) => (
-          <Card 
-            key={plan._id} 
+          <Card
+            key={plan._id}
             className={`flex flex-col relative ${plan.status === 'Active' ? 'border-primary/20' : 'opacity-50'}`}
             hoverable={plan.status === 'Active'}
           >
@@ -135,32 +135,32 @@ const Plans: React.FC = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-secondary-900 mb-2">{plan.name}</h3>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-primary">₹{plan.price.toLocaleString()}</span>
+                <span className="text-2xl font-bold text-primary">₹{plan.price.toLocaleString()}</span>
                 <span className="text-secondary-400 text-sm">/ {plan.validityDays} days</span>
               </div>
             </div>
 
             <div className="space-y-4 flex-1 mb-8">
               <div className="p-3 bg-primary/5 rounded-xl border border-primary/10">
-                <p className="text-sm font-medium text-primary flex justify-between">
+                <p className="text-xl font-medium text-primary flex justify-between">
                   <span>Wallet Credit:</span>
                   <span className="font-bold">₹{plan.creditAmount.toLocaleString()}</span>
                 </p>
               </div>
-              
+
               <div className="space-y-3">
-                <div className="flex items-start gap-3 text-secondary-500 text-sm leading-relaxed">
-                  <Check size={18} className="text-primary mt-0.5 shrink-0" />
-                  <span>{plan.description}</span>
-                </div>
                 <div className="flex items-start gap-3 text-secondary-500 text-sm leading-relaxed">
                   <Check size={18} className="text-primary mt-0.5 shrink-0" />
                   <span>Valid for {plan.validityDays} days from date of purchase</span>
                 </div>
+                <div className="flex items-start gap-3 text-secondary-500 text-sm leading-relaxed">
+                  <Check size={18} className="text-primary mt-0.5 shrink-0" />
+                  <span>Wallet Balance usable for any service at any registered SpaAdvisor centre/outlet across all locations in India.</span>
+                </div>
               </div>
             </div>
 
-            <Button 
+            <Button
               className="w-full py-4 shadow-lg"
               disabled={plan.status !== 'Active'}
               onClick={() => handlePurchase(plan)}
