@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export interface User {
   createdAt?: string | null;
   _id: string;
