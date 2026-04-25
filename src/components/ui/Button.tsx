@@ -29,6 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={cn(
         variants[variant],
         isLoading && 'opacity-70 cursor-not-allowed',
+        props.disabled && 'opacity-50 cursor-not-allowed grayscale pointer-events-none shadow-none transform-none',
         className
       )}
       disabled={isLoading || props.disabled}
