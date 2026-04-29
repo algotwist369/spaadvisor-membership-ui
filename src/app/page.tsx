@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
-import { Check, Star, Loader2 } from 'lucide-react';
+import { Check, Star, Loader2, Menu } from 'lucide-react';
 import api from '@/lib/api';
 import type { MembershipPlan } from '@/types';
 
@@ -32,26 +32,44 @@ export default function Landing() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Simple Header for Landing */}
+      <nav className="fixed top-0 left-0 right-0 h-20 bg-white/80 backdrop-blur-md z-50 flex items-center justify-between px-6 lg:px-12 border-b border-secondary-100">
+        <div className="flex items-center gap-2">
+          <img 
+            src="https://res.cloudinary.com/dxpxcptn4/image/upload/v1771596901/lead_funnel/Logo/ueieevrqtlohixofo1fe.png" 
+            alt="SpaAdvisor Logo" 
+            className="h-8 lg:h-10 w-auto"
+          />
+          <span className="text-xl lg:text-2xl font-bold text-primary">SpaAdvisor</span>
+        </div>
+        <Link 
+          href="/login" 
+          className="btn-primary px-6 py-2 text-sm lg:text-base lg:px-8 lg:py-3"
+        >
+          Login
+        </Link>
+      </nav>
+
       {/* Hero Section */}
-      <section className="h-screen flex flex-col items-center justify-center p-8 text-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-white to-white">
-        <h1 className="text-6xl md:text-8xl font-bold text-secondary-900 mb-8 leading-tight">
-          Experience Premium <br />
+      <section className="min-h-screen flex flex-col items-center justify-center px-6 py-32 lg:p-8 text-center bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-white to-white">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-secondary-900 mb-6 lg:mb-8 leading-tight">
+          Experience Premium <br className="hidden sm:block" />
           <span className="text-primary italic">Wellness</span>
         </h1>
-        <p className="text-xl text-secondary-500 max-w-2xl mb-12 leading-relaxed">
-          Join India&apos;s most exclusive spa membership platform. <br />
+        <p className="text-lg lg:text-xl text-secondary-500 max-w-2xl mb-10 lg:mb-12 leading-relaxed">
+          Join India&apos;s most exclusive spa membership platform. <br className="hidden sm:block" />
           Discover tranquility and rejuvenation at your fingertips.
         </p>
-        <div className="flex flex-col sm:flex-row gap-6">
+        <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full sm:w-auto">
           <Link 
             href="/login" 
-            className="btn-primary px-10 py-4 text-lg flex items-center justify-center"
+            className="btn-primary px-10 py-4 text-lg flex items-center justify-center w-full sm:w-auto"
           >
             Explore Dashboard
           </Link>
           <button 
             onClick={scrollToPlans}
-            className="btn-outline px-10 py-4 text-lg flex items-center justify-center"
+            className="btn-outline px-10 py-4 text-lg flex items-center justify-center w-full sm:w-auto"
           >
             View Membership Plans
           </button>
@@ -59,9 +77,9 @@ export default function Landing() {
       </section>
 
       {/* Plans Section */}
-      <section id="plans-section" className="py-24 px-8 max-w-7xl mx-auto">
-        <header className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-secondary-900 mb-4">Membership Plans</h2>
+      <section id="plans-section" className="py-20 lg:py-32 px-6 lg:px-8 max-w-7xl mx-auto">
+        <header className="text-center max-w-2xl mx-auto mb-12 lg:mb-20">
+          <h2 className="text-3xl lg:text-5xl font-bold text-secondary-900 mb-4">Membership Plans</h2>
           <p className="text-secondary-500">Choose the perfect membership to elevate your wellness journey.</p>
         </header>
 
@@ -71,7 +89,7 @@ export default function Landing() {
             <p className="text-secondary-500">Loading exclusive plans...</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {plans.map((plan) => (
               <Card 
                 key={plan._id} 
@@ -79,15 +97,15 @@ export default function Landing() {
                 hoverable={plan.status === 'Active'}
               >
                 {plan.price > 5000 && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider shadow-lg">
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full flex items-center gap-1 uppercase tracking-wider shadow-lg z-10">
                     <Star size={14} fill="currentColor" /> Premium
                   </div>
                 )}
 
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-secondary-900 mb-2">{plan.name}</h3>
+                <div className="mb-6 lg:mb-8">
+                  <h3 className="text-xl lg:text-2xl font-bold text-secondary-900 mb-2">{plan.name}</h3>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-bold text-primary">₹{plan.price.toLocaleString()}</span>
+                    <span className="text-3xl lg:text-4xl font-bold text-primary">₹{plan.price.toLocaleString()}</span>
                     <span className="text-secondary-400 text-sm">/ {plan.validityDays} days</span>
                   </div>
                 </div>
