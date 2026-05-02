@@ -35,5 +35,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-api_documentation 2
-api_documentation.md
+spaadvisor-membership-ui
+response

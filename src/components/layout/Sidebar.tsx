@@ -9,16 +9,11 @@ import {
   Wallet, 
   User, 
   LogOut,
-  Sparkles,
-  X
+  Sparkles
 } from 'lucide-react';
 import { useAuthStore } from '@/store/useAuthStore';
 
-interface SidebarProps {
-  onClose?: () => void;
-}
-
-export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
+export const Sidebar: React.FC = () => {
   const logout = useAuthStore((state) => state.logout);
   const router = useRouter();
   const pathname = usePathname();
@@ -26,7 +21,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   const handleLogout = () => {
     logout();
     router.push('/login');
-    if (onClose) onClose();
   };
 
   const menuItems = [
@@ -37,24 +31,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   ];
 
   return (
-    <div className="w-64 bg-white border-r border-secondary-200 h-full flex flex-col p-6 shadow-xl lg:shadow-none">
-      <div className="flex items-center justify-between mb-10 px-2">
-        <div className="flex items-center gap-3">
-          <img 
-            src="https://res.cloudinary.com/dxpxcptn4/image/upload/v1771596901/lead_funnel/Logo/ueieevrqtlohixofo1fe.png" 
-            alt="SpaAdvisor Logo" 
-            className="h-10 w-auto"
-          />
-          <span className="text-xl font-bold text-primary">SpaAdvisor</span>
-        </div>
-        {onClose && (
-          <button 
-            onClick={onClose}
-            className="lg:hidden p-2 hover:bg-secondary-100 rounded-lg transition-colors text-secondary-500"
-          >
-            <X size={20} />
-          </button>
-        )}
+    <div className="w-64 bg-white border-r border-secondary-200 h-screen fixed left-0 top-0 flex flex-col p-6">
+      <div className="flex items-center gap-3 mb-10 px-2">
+        <img 
+          src="https://res.cloudinary.com/dxpxcptn4/image/upload/v1771596901/lead_funnel/Logo/ueieevrqtlohixofo1fe.png" 
+          alt="SpaAdvisor Logo" 
+          className="h-10 w-auto"
+        />
+        <span className="text-xl font-bold text-primary">SpaAdvisor</span>
       </div>
 
       <nav className="flex-1 space-y-2">
@@ -64,7 +48,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
             <Link
               key={item.path}
               href={item.path}
-              onClick={() => onClose && onClose()}
               className={`
                 flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300
                 ${isActive 

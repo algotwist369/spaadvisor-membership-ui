@@ -76,16 +76,39 @@ export interface AdminMembership {
 
 export interface AdminRedemption {
   _id?: string;
+  membershipId?: string;
   customerName?: string;
   mobileNumber?: string;
+  duration?: number;
   deductedAmount?: number;
+  previousBalance?: number;
+  newBalance?: number;
   redeemedAt?: string;
   planName?: string;
+  serviceName?: string;
+  branchName?: string;
+  centreName?: string;
+  regionId?: string;
+  __v?: number;
   serviceId?: {
     _id?: string;
     name?: string;
   };
-  status?: string;
+  branchId?: {
+    _id?: string;
+    name?: string;
+  };
+  centreId?: {
+    _id?: string;
+    name?: string;
+  };
+  staffAttending?: Array<{
+    name?: string;
+  }>;
+  performedBy?: {
+    _id?: string;
+    name?: string;
+  };
 }
 
 export interface AdminTransaction {
