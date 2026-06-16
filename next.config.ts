@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
               "font-src 'self'",
               "frame-src https://api.razorpay.com https://tds.razorpay.com",
               "connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com https://backend.st9.in",
+              // ADDED checkout.razorpay.com to frame-src
+              "frame-src https://api.razorpay.com https://tds.razorpay.com https://checkout.razorpay.com",
+              "connect-src 'self' https://api.razorpay.com https://lumberjack.razorpay.com https://backend.st9.in",
 
             ].join("; ")
           }
